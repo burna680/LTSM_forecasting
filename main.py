@@ -47,7 +47,7 @@ if __name__ == "__main__":
     #Icons for the side menu https://icons.getbootstrap.com/
 
     with st.sidebar:
-        st.image("forecasting_LTSM.png", width=300)
+        st.image("misc/forecasting_LTSM.png", width=300)
         # selected_page = st.selectbox("Main Menu", list(pages.keys()))
         selected = option_menu(
             menu_title = "Main Menu",

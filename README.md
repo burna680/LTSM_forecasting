@@ -1,16 +1,19 @@
-**LSTM Forecasting App**
-==========================
+**LSTM Stock Price Forecasting Web Application**
+=====================================================
+![alt text](misc/stocks.gif)
 
 **Description**
-------------------------
-
+---------------
 This project is a web application built using Streamlit that utilizes Long Short-Term Memory (LSTM) networks to forecast stock prices. The app allows users to gather data, analyze and preprocess it, train a model, and view the results.
+
+![alt text](misc/LTSM_gif.gif)
 
 **Table of Contents**
 ----------------------
 
 * [Installation and Running the Project](#installation-and-running-the-project)
-* [How to Use the Project](#how-to-use-the-project)
+* [Usage Guide](#usage-guide)
+* [License](#license)
 * [Credits](#credits)
 
 **Installation and Running the Project**
@@ -30,66 +33,53 @@ This script will create a virtual environment with the necessary packages and re
 #!/bin/bash
 
 # Create a virtual environment
-python3 -m venv venv
+python3 -m venv LTSM_forecasting
 
 # Activate the virtual environment
-source venv/bin/activate
+source LTSM_forecasting/bin/activate
 
 # Install required packages
-pip install streamlit
-pip install streamlit-option-menu
-pip install pandas
-pip install yfinance
-pip install numpy
-pip install scikit-learn
-pip install plotly
+pip install -r requirements.txt
 
 # Deactivate the virtual environment
 deactivate
 ```
 3. Activate the virtual environment:
 ```bash
-source venv/bin/activate
+source LTSM_forecasting/bin/activate
 ```
 4. Run the project using:
 ```bash
 streamlit run main.py
 ```
-**How to Use the Project**
----------------------------
 
-1. Open the app in your web browser by navigating to `http://localhost:8501`
-2. Select the first page from the menu to perform the following actions:
-	* Gather data: Use the `Data gathering` page to retrieve stock data using the `yfinance` library.
-	* Analyze and preprocess data: Use the `Data analysis` and `Data preprocessing` pages to explore and transform the data.
-	* Train a model: Use the `Model training` page to train an LSTM model on the preprocessed data.
-	* View results: Use the `Results` page to view the forecasted stock prices.
+**Usage Guide**
+--------------
+
+1. **Gather Data**: Use the app to gather historical stock price data for a specific stock ticker.
+2. **Analyze and Preprocess Data**: The app will analyze and preprocess the data for training the LSTM model.
+3. **Train Model**: Train the LSTM model using the preprocessed data.
+4. **View Results**: View the forecasted stock prices and compare them to the actual prices.
+
+**Contributing**
+--------------
+
+We welcome contributions to this project! If you're interested in contributing, please follow these steps:
+
+1. Fork the repository and create a new branch for your feature or bug fix.
+2. Make your changes and commit them with a clear and descriptive commit message.
+3. Open a pull request to the main branch, including a brief description of your changes.
+4. We'll review your pull request and provide feedback or merge it into the main branch.
 
 **Credits**
-------------
+-------
 
 * This project was built using Streamlit and utilizes various libraries such as `yfinance`, `pandas`, and `scikit-learn`.
 * The LSTM forecasting model was implemented using the `keras` library.
 * The app's UI was designed using Streamlit's built-in components and `plotly` for visualization.
 
 
-## Steps in every ML project
+**License**
+-------
 
-1. Data gathering
-2. Data analysis
-3. Data transformation/preparation
-4. Model training & development 
-5. Model validation 
-6. Model serving 
-7. Model monitoring 
-8. Model re-training 
-
-**Important aspects when deploying a scalable pipeline**
------------
-- Configuration
-- Automation
-- Data verification
-- Testing and debugging
-- Resource management
-- Process and metadata management
-- Serving infrastructure
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

@@ -1,0 +1,13 @@
+keras==3.4.1
+matplotlib==3.9.2
+mplfinance==0.12.10b0
+numpy==2.1.1
+pandas==1.5.0
+plotly==5.23.0
+pytest==8.2.2
+pytickersymbols==1.15.0
+scikit_learn==1.5.2
+streamlit==1.38.0
+streamlit_option_menu==0.3.13
+tensorflow==2.17.0
+yfinance==0.2.43
