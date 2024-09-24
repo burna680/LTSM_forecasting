@@ -36,7 +36,6 @@ class ResultsPage(Page):
                 "Validation": "orange",
                 "Test": "darkred"
             }
-            st.write(train_results)
             st.plotly_chart(plot_actual_vs_predicted_stock_data(actual_data, predicted_data, colors))
             # st.plotly_chart(fig)
         except Exception as e:

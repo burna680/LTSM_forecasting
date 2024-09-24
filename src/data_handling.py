@@ -50,33 +50,6 @@ def gather_data(
         df['change_percent'] = df['Close'].pct_change() * 100
     return data
 
-
-# def split_dataset_sequentially(data: dict[str,pd.DataFrame], target: list[str,str], train_size: float =0.7, val_size: float=0.1, test_size: float=0.2) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-#     """
-#     Splits the dataset sequentially into training, validation, and test subsets
-    
-#         Args:
-#             data (dict[str,pd.DataFrame]): data to be split
-#             target_stock (list[str,str]): target stock and feature to be predicted by the model
-#             train_size (float): proportion of the dataset to be used for training. Defaults to 0.7.
-#             val_size (float): proportion of the dataset to be used for validation. Defaults to 0.1.
-#             test_size (float): proportion of the dataset to be used for testing. Defaults to 0.2.
-#         Returns: 
-#             Training, Validation and Testing pandas.DataFrame subsets
-#     """
-#     assert train_size + val_size + test_size == 1.0, "Sizes must sum up to 1.0"
-
-#     data = data[target[0]][target[1]]
-#     n_samples = len(data)
-    
-#     train_end = int(train_size * n_samples)
-#     val_end = int((train_size + val_size) * n_samples)
-
-#     train_data = data.iloc[:train_end].to_frame()
-#     val_data = data.iloc[train_end:val_end].to_frame()
-#     test_data = data.iloc[val_end:].to_frame()
-
-#     return train_data, val_data, test_data
 def split_dataset_sequentially(data: dict[str,pd.DataFrame], target: list[str,str], train_size: float = 0.7, val_size: float = 0.1, test_size: float = 0.2) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
     Splits the dataset sequentially into training, validation, and test subsets.

@@ -19,12 +19,16 @@ class DataGathering(Page):
         except Exception as e:
             st.error(f"Error fetching stock data: {e}")
             return
-        st.selectbox("Choose a stock", df["symbol"], key="stock_selected")
+        stock_selected = st.selectbox("Choose a stock", df["symbol"], key="stock_selected")
         # Gather stock data when a stock is selected
-        if st.session_state.stock_selected:
+        if stock_selected:
             # Fetch stock data every time the user selects a new stock
             try:
-                st.session_state.stock_data = gather_data(stocks=[st.session_state.stock_selected])
-                st.write(st.session_state.stock_data[st.session_state.stock_selected])
+                stock_data = gather_data(stocks=[stock_selected])
+                if stock_selected not in stock_data:
+                    st.error(f"Error: {stock_selected} is not available in Yahoo Finance database.")
+                else:
+                    st.session_state.stock_data = stock_data
+                    st.write(st.session_state.stock_data[stock_selected])
             except Exception as e:
                 st.error(f"Error displaying stock data: {e}")
