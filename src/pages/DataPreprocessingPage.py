@@ -8,8 +8,7 @@ class DataPreprocessing(Page):
         st.subheader("Data Preprocessing")
 
         if "stock_data" not in st.session_state:
-            st.error("No data available. Please gather data first from the 'Data Gathering' page.")
-            return
+            raise Exception("No data available. Please gather data first from the 'Data Gathering' page.")
         if 'window_size' not in st.session_state:
             st.session_state.window_size = 8  # Default value as an integer
         data = st.session_state.stock_data
@@ -73,6 +72,6 @@ class DataPreprocessing(Page):
             st.session_state.scaler = scaler
 
         except ValueError as ve:
-            st.error(f"Value Error during preprocessing: {ve}")
+            raise ValueError("Value Error during preprocessing") from ve
         except Exception as e:
-            st.error(f"Error preprocessing data: {e}")
+            raise Exception("Error preprocessing data") from e 

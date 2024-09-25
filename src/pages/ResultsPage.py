@@ -5,8 +5,17 @@ from src.predictions import *
 
 class ResultsPage(Page):
     def render(self):
+        """
+        Renders the Results page, displaying the training and validation loss, as well as the 
+        actual vs predicted stock prices for the training, validation, and test sets.
+
+        Raises:
+        - Exception: If no training data is available (i.e. the model has not been trained).
+        - TypeError: If any error occurs while rendering the page.
+        """
         st.subheader("Results")
-        
+        if "history" not in st.session_state:
+            raise Exception("No training data available. Please train the model first from the 'Model' page.")
         try: 
             history=st.session_state.history
             model=st.session_state.model
@@ -37,6 +46,5 @@ class ResultsPage(Page):
                 "Test": "darkred"
             }
             st.plotly_chart(plot_actual_vs_predicted_stock_data(actual_data, predicted_data, colors))
-            # st.plotly_chart(fig)
         except Exception as e:
             raise TypeError(e) from e

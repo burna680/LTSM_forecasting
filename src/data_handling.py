@@ -2,7 +2,16 @@ import pandas as pd
 import yfinance as yf
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-import math
+import asyncio
+from pytickersymbols import PyTickerSymbols
+
+
+async def fetch_data():
+    return PyTickerSymbols().get_all_stocks()
+
+async def download_data(stock,period):
+    return yf.download(stock, period=period)
+
 
 def gather_data(
     stocks: list[str] = ["AAPL","TSLA", "NVDA", "AMZN", "GOOGL"],
@@ -37,7 +46,7 @@ def gather_data(
     try:
         data = {}
         for stock in stocks:
-            stock_data = yf.download(stock, period=period)
+            stock_data = asyncio.run(download_data(stock, period))
             if stock_data.empty:
                 raise ValueError(f"No data found for stock symbol: {stock}")
             data[stock] = stock_data

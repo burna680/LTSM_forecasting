@@ -7,6 +7,15 @@ from src.predictions import *
 
 class ModelPage(Page):
     def render(self):
+        """
+        Renders the Model page, which allows users to train an LSTM model using the preprocessed data
+        from the Data Preprocessing page.
+
+        Raises:
+        - Exception: If no data is available (i.e. the user has not gathered data from the Data Gathering page).
+        - Exception: If preprocessing is incomplete (i.e. the user has not completed Data Preprocessing).
+        - Exception: If an error occurs while training the model.
+        """
         st.subheader("Model Training")
         
         # Debugging statement to view session state
@@ -14,16 +23,13 @@ class ModelPage(Page):
 
         # Check if data is available
         if "stock_data" not in st.session_state or not st.session_state["stock_data"]:
-            st.error("No data available. Please gather data first from the 'Data Gathering' page.")
-            return
+            raise Exception("No data available. Please gather data first from the 'Data Gathering' page.")
         # st.write("Current Session State:", st.session_state)
         # Check if preprocessing is done
         required_keys = ["window_size", "feature_selected", "X_train", "y_train"]
         missing_keys = [key for key in required_keys if st.session_state.get(key) is None]
         if missing_keys:
-            st.error(f"Missing preprocessing data: {', '.join(missing_keys)}. Please complete Data Preprocessing first.")
-            return
-
+            raise Exception(f"Missing preprocessing data: {', '.join(missing_keys)}. Please complete Data Preprocessing first.") from e 
         left_col, right_col = st.columns(2)
         with left_col:
             with st.container():
@@ -60,5 +66,4 @@ class ModelPage(Page):
                 st.session_state.model = model
                 st.session_state.history = history
             except Exception as e:
-                st.error(f"Error training the model: {e}")
-        # st.error('Adjusting features or parameters after training will not maintain the session. Please ensure to retrain after making changes.', icon="ℹ️")
+                raise Exception("Error training the model") from e

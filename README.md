@@ -4,7 +4,7 @@
 
 **Description**
 ---------------
-This project is a web application built using Streamlit that utilizes Long Short-Term Memory (LSTM) networks to forecast stock prices. The app allows users to gather data, analyze and preprocess it, train a model, and view the results.
+This project is a web [application](https://burna680ltsmforecasting.streamlit.app/) built using Streamlit that utilizes Long Short-Term Memory (LSTM) networks to forecast stock prices. The app allows users to gather data, analyze and preprocess it, train a model, and view the results.
 
 ![alt text](misc/LTSM_gif.gif)
 
