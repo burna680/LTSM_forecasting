@@ -13,6 +13,6 @@ personal_logo = '''
   <i class="fa-solid fa-globe"></i>                                                                           
 '''
 
-personal_website = "https://burna680.github.io/portfolio-resume/"
-linkedin_link = "https://linkedin.com/in/lucas-burna/"
+personal_website = "https://burna680.github.io/portfolio/"
+linkedin_link = "https://linkedin.com/in/lucas-burna/en"
 github_link = "https://github.com/burna680"
