@@ -5,12 +5,13 @@ class HomePage(Page):
         st.header("LTSM Forecasting App")
         st.subheader("Welcome to the Long Short-Term Memory (LSTM) stock price forecasting app!")
         st.write("This app allows you to gather historical stock price data, analyze and preprocess it, train an LSTM model, and view the forecasted results.")
-        st.image("misc/stocks.gif", width=500)
-        st.write("Get started by following these steps:")
-        st.write("**Usage Guide**")
-        st.write("1. **Gather Data**: Use the app to gather historical stock price data for a specific stock ticker.")
-        st.write("2. **Analyze and Preprocess Data**: The app will analyze and preprocess the data for training the LSTM model.")
-        st.write("3. **Train Model**: Train the LSTM model using the preprocessed data.")
-        st.write("4. **View Results**: View the forecasted stock prices and compare them to the actual prices.")
-        st.write("You can go directly to the Model training page and click the 'Train LSTM Model' using the default values to see the results! They use the 'NVDA' stock and the closing value as an example.")
-        
+        left_col, right_col = st.columns(2)
+        with right_col:
+            st.image("misc/stocks.gif", width=400)
+        with left_col:
+            st.title("**User Guide**")
+            st.write("1. Go to the **Gather Data** page and use the app to gather historical stock price data for a specific stock ticker.")
+            st.write("2. You can see stast ins the **Data analysis** page")
+            st.write("3. See the preprocessing step in the **Data preprocessing** page to see the data for training the LSTM model.")
+            st.write("4. **Train Model**: Train the LSTM model using the preprocessed data.")
+            st.write("5. **View Results**: View the forecasted stock prices and compare them to the actual prices.")        
