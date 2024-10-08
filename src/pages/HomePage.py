@@ -12,5 +12,5 @@ class HomePage(Page):
         st.write("2. **Analyze and Preprocess Data**: The app will analyze and preprocess the data for training the LSTM model.")
         st.write("3. **Train Model**: Train the LSTM model using the preprocessed data.")
         st.write("4. **View Results**: View the forecasted stock prices and compare them to the actual prices.")
-        st.write("Select a page from the sidebar menu to begin!")
+        st.write("You can go directly to the Model training page and click the 'Train LSTM Model' using the default values to see the results! They use the 'NVDA' stock and the closing value as an example.")
         

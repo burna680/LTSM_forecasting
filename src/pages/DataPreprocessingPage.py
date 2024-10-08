@@ -26,7 +26,7 @@ class DataPreprocessing(Page):
         with left_col:
             feature_selected = st.selectbox(
                 "Choose a feature to predict",
-                options=data[stock_selected].columns,
+                options=data[stock_selected].columns[3],
                 # key="feature_selected"
             )
 

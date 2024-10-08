@@ -33,16 +33,16 @@ class ModelPage(Page):
         left_col, right_col = st.columns(2)
         with left_col:
             with st.container():
-                lstm_layers = st.slider('LSTM Layers:', 1, 5, key="lstm_layers")
-                lstm_neurons = st.slider('LSTM Neurons:', 1, 50, key="lstm_neurons")
+                lstm_layers = st.slider('LSTM Layers:', 1, 5, value=2, key="lstm_layers")
+                lstm_neurons = st.slider('LSTM Neurons:', 1, 50,  value=50, key="lstm_neurons")
                 st.divider()
-                linear_hidden_layers = st.slider('Hidden Layers:', 1, 5, key="linear_hidden_layers")
-                linear_hidden_neurons = st.slider('Hidden Neurons:', 1, 50, key="linear_hidden_neurons")
+                linear_hidden_layers = st.slider('Hidden Layers:', 1, 5,  value=2, key="linear_hidden_layers")
+                linear_hidden_neurons = st.slider('Hidden Neurons:', 1, 50,  value=10, key="linear_hidden_neurons")
         with right_col:
             with st.container():
-                n_epochs = st.number_input('No. of Epochs', step=1, min_value=1, max_value=500, key="n_epochs")
-                batch_size = st.number_input('Batch Size', step=1, min_value=1, max_value=100, key="batch_size")
-                learning_rate = st.number_input('Learning Rate', value=0.001,  step=0.0001, min_value=0.0001, max_value=1.0, key="learning_rate")
+                n_epochs = st.number_input('No. of Epochs', step=1, min_value=1,  value=150, max_value=500, key="n_epochs")
+                batch_size = st.number_input('Batch Size', step=1, min_value=1, value=16, max_value=100, key="batch_size")
+                learning_rate = st.number_input('Learning Rate', value=0.001,  step=0.0001, min_value=0.000001, max_value=1.0, key="learning_rate",format="%0.4f")
             # Button to train the model
         train_click = st.button('Train LSTM Model', type="primary")
         if train_click:

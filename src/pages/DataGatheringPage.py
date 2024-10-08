@@ -19,7 +19,8 @@ class DataGathering(Page):
             st.write(df)
         except Exception as e:
             raise Exception(f"Error fetching stock data: {e}") from e
-        stock_selected = st.selectbox("Choose a stock", df["symbol"], key="stock_selected")
+        st.write("Select a stock from the list below:")
+        stock_selected = st.selectbox("Choose a stock", df["symbol"], key="stock_selected", index= list(df["symbol"]).index("NVDA"))
         # Gather stock data when a stock is selected
         if stock_selected:
             # Fetch stock data every time the user selects a new stock
