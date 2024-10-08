@@ -11,7 +11,7 @@ class HomePage(Page):
         with left_col:
             st.title("**User Guide**")
             st.write("1. Go to the **Gather Data** page and use the app to gather historical stock price data for a specific stock ticker.")
-            st.write("2. You can see stast ins the **Data analysis** page")
+            st.write("2. You can see stast in the **Data analysis** page")
             st.write("3. See the preprocessing step in the **Data preprocessing** page to see the data for training the LSTM model.")
             st.write("4. **Train Model**: Train the LSTM model using the preprocessed data.")
             st.write("5. **View Results**: View the forecasted stock prices and compare them to the actual prices.")        
